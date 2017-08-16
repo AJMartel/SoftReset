@@ -24,13 +24,16 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
 
 #include <avr/wdt.h>
 
-#define soft_restart()        \
-do                          \
-{                           \
-    wdt_enable(WDTO_15MS);  \
-    for(;;)                 \
-    {                       \
-    }                       \
-} while(0)
+void wdt_init(void) __attribute__((naked)) __attribute__((section(".init3")));
+
+#define soft_restart()		\
+do				\
+{				\
+    cli();			\
+    wdt_enable(WDTO_15MS);	\
+    for(;;)			\
+    {				\
+    }				\
+} while(0)			
 
 #endif

@@ -3,3 +3,5 @@ This library allows you to restart an Arduino from software using the Watchdog T
 Older versions of Optiboot had some problems related to handling of the Watchdog Timer which would cause the Mega328 to go into an infinite reset loop
 
 To reset the processor from software, simply call the `soft_restart()` function.
+
+Forked and modified by jadc197 Aug/2017
